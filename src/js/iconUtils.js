@@ -1,4 +1,5 @@
 import dSnow from "../assets/icons/full-weather/day-snow.png";
+import nSnow from "../assets/icons/full-weather/night-snow.png";
 import thunder from "../assets/icons/full-weather/thunder.png";
 import dthunder from "../assets/icons/full-weather/day-thunder.png";
 import nthunder from "../assets/icons/full-weather/night-thunder.png";
@@ -15,7 +16,7 @@ export function getWeatherIcon(iconName) {
   const iconMap = {
     snow: dSnow,
     "snow-showers-day": dSnow,
-    "snow-showers-night": dSnow,
+    "snow-showers-night": nSnow,
     "thunder-rain": thunder,
     "thunder-showers-day": dthunder,
     "thunder-showers-night": nthunder,
