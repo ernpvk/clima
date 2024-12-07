@@ -1,3 +1,5 @@
+import { getWeatherIcon } from "./iconUtils";
+
 export function renderAside(data) {
   const cityName = document.querySelector(".city-name");
   const description = document.querySelector("#description");
@@ -8,7 +10,8 @@ export function renderAside(data) {
 
   cityName.textContent = data.resolvedAddress;
   description.textContent = data.description;
-  
+  const iconPath = getWeatherIcon(data.days[0].icon);
+  mainIcon.src = iconPath;
   mainTemp.textContent = `${data.days[0].temp}°C`;
 
   const rawDate = data.days[0].datetime;
@@ -18,19 +21,4 @@ export function renderAside(data) {
     year: "numeric",
   });
   dateElement.textContent = formattedDate;
-
-  function updateCityTime() {
-    const cityTime = new Date(new Date().toLocaleString("en-US", { timeZone: data.timezone }));
-
-    const formattedTime = cityTime.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-
-    timeElement.textContent = formattedTime;
-  }
-
-  setInterval(updateCityTime, 1000);
-  updateCityTime();
 }
