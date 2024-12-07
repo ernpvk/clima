@@ -5,7 +5,6 @@ export function renderAside(data) {
   const description = document.querySelector("#description");
   const mainTemp = document.querySelector(".main-temp");
   const dateElement = document.querySelector("#date");
-  const timeElement = document.querySelector("#time");
   const mainIcon = document.querySelector(".animated-cloud");
 
   cityName.textContent = data.resolvedAddress;
