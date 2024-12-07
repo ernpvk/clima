@@ -9,9 +9,20 @@ export function renderAside(data) {
 
   cityName.textContent = data.resolvedAddress;
   description.textContent = data.description;
-  const iconPath = getWeatherIcon(data.days[0].icon);
+
+  const tzoffset = data.tzoffset || 0;
+  const currentEpoch = Math.floor(Date.now() / 1000);
+  const adjustedEpoch = currentEpoch + tzoffset * 3600;
+
+  const currentHour = data.days[0].hours.find(
+    (hour) => adjustedEpoch >= hour.datetimeEpoch && adjustedEpoch < hour.datetimeEpoch + 3600
+  );
+
+  const hourData = currentHour || data.days[0].hours[0];
+
+  const iconPath = getWeatherIcon(hourData.icon);
   mainIcon.src = iconPath;
-  mainTemp.textContent = `${data.days[0].temp}°C`;
+  mainTemp.textContent = `${hourData.temp}°C`;
 
   const rawDate = data.days[0].datetime;
   const formattedDate = new Date(rawDate).toLocaleDateString("en-GB", {
@@ -20,4 +31,7 @@ export function renderAside(data) {
     year: "numeric",
   });
   dateElement.textContent = formattedDate;
+
+  console.log("Current Hour Icon:", hourData.icon);
+  console.log("Current Hour Temp:", hourData.temp);
 }
