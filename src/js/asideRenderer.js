@@ -6,6 +6,7 @@ export function renderAside(data) {
   const mainTemp = document.querySelector(".main-temp");
   const dateElement = document.querySelector("#date");
   const mainIcon = document.querySelector(".animated-cloud");
+  const feelsLike = document.getElementById("feelslike");
   const weatherContainer = document.querySelector(".aside-display");
 
   const conditionClasses = [
@@ -35,17 +36,18 @@ export function renderAside(data) {
     (hour) => adjustedEpoch >= hour.datetimeEpoch && adjustedEpoch < hour.datetimeEpoch + 3600
   );
   const hourData = currentHour || data.days[0].hours[0];
-  const icon = hourData.icon;
+  const icon = data.days[0].icon;
 
   const newClasses = getConditionClasses(icon);
 
   weatherContainer.classList.add("weather-container", ...newClasses);
 
   cityName.textContent = data.resolvedAddress;
-  description.textContent = data.description;
-  mainTemp.textContent = `${hourData.temp}°C`;
   mainIcon.src = getWeatherIcon(icon);
+  mainTemp.textContent = `${hourData.temp}°C`;
+
   console.log(hourData.icon);
+
   const rawDate = data.days[0].datetime;
   const formattedDate = new Date(rawDate).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -53,6 +55,9 @@ export function renderAside(data) {
     year: "numeric",
   });
   dateElement.textContent = formattedDate;
+
+  description.textContent = data.description;
+  feelsLike.textContent = `${data.days[0].feelslike} °C`;
 
   console.log("Applied Classes:", newClasses);
 }

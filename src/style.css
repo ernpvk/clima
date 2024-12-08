@@ -142,7 +142,7 @@ h6 {
   background-color: #ffecb3;
 }
 .clear-night {
-  background-color: #ffc107;
+  background-color: #687bb2;
 }
 
 body {
@@ -196,6 +196,7 @@ body {
   cursor: pointer;
 }
 .aside-display {
+  height: 100vh;
   color: #424242;
   display: grid;
   grid-template-rows: 0fr 1fr;
@@ -222,8 +223,10 @@ body {
 }
 
 .animated-cloud {
-  width: 90%;
-  max-width: 800px;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto; /* Center the image */
   animation: floatCloud 3s ease-in-out infinite;
 }
 
@@ -360,23 +363,31 @@ body {
   font-size: 1.2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   body {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr;
   }
 
   .highlight-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on small screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #forecast-list {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .main-temp,
+  .city-name {
+    font-size: 2rem;
+  }
+
+  #description {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   #forecast-list,
   .highlight-list {
-    grid-template-columns: 1fr; /* Single column layout for cards */
+    grid-template-columns: 1fr;
   }
 }

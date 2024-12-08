@@ -2,7 +2,7 @@ export async function fetchWeatherData(location) {
   const API_KEY = process.env.API_KEY;
   const BASE_URL =
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline";
-  const requestUrl = `${BASE_URL}/${location}?unitGroup=us&iconSet=icons2&lang=en&key=${API_KEY}&contentType=json&`;
+  const requestUrl = `${BASE_URL}/${location}?unitGroup=uk&iconSet=icons2&lang=en&key=${API_KEY}&contentType=json&`;
   try {
     console.log(`Fetching weather data for: ${location}`);
     const response = await fetch(requestUrl, { mode: "cors" });

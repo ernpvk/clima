@@ -27,7 +27,7 @@ export function getWeatherIcon(iconName) {
     "partly-cloudy-day": dCloudy,
     "partly-cloudy-night": nCloudy,
     "clear-day": dClear,
-    "clear-day": nClear,
+    "clear-night": nClear,
   };
 
   return iconMap[iconName] || "./assets/icons/full-weather/default.png";
