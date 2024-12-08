@@ -1,4 +1,5 @@
 import { getWeatherIcon } from "./iconUtils";
+import { getCurrentTime } from "./utils";
 
 export function renderAside(data) {
   const cityName = document.querySelector(".city-name");
@@ -8,6 +9,9 @@ export function renderAside(data) {
   const mainIcon = document.querySelector(".animated-cloud");
   const feelsLike = document.getElementById("feelslike");
   const weatherContainer = document.querySelector(".aside-display");
+  const timezone = data.timezone;
+  const time = getCurrentTime(timezone);
+  console.log(time);
 
   const conditionClasses = [
     "day",

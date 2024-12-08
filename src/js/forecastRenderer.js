@@ -3,7 +3,7 @@ export function renderForecast(data) {
   data.days[0].hours.forEach((hour) => {
     const forecastCard = document.createElement("div");
     forecastCard.classList.add("forecast-card");
-    forecastCard.textContent = hour.temp;
+    forecastCard.textContent = hour.datetime;
     forecastList.appendChild(forecastCard);
   });
 }
