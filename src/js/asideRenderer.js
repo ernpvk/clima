@@ -33,25 +33,12 @@ export function renderAside(data) {
   ];
   weatherContainer.classList.remove(...conditionClasses);
 
-  const tzoffset = data.tzoffset || 0;
-  const currentEpoch = Math.floor(Date.now() / 1000);
-  const adjustedEpoch = currentEpoch + tzoffset * 3600;
-  const currentHour = data.days[0].hours.find(
-    (hour) => adjustedEpoch >= hour.datetimeEpoch && adjustedEpoch < hour.datetimeEpoch + 3600
-  );
-  const hourData = currentHour || data.days[0].hours[0];
-  const icon = data.days[0].icon;
-
+  const icon = data.currentConditions.icon;
   const newClasses = getConditionClasses(icon);
-
   weatherContainer.classList.add("weather-container", ...newClasses);
-
   cityName.textContent = data.resolvedAddress;
   mainIcon.src = getWeatherIcon(icon);
-  mainTemp.textContent = `${hourData.temp}°C`;
-
-  console.log(hourData.icon);
-
+  mainTemp.textContent = `${data.currentConditions.temp}°C`;
   const rawDate = data.days[0].datetime;
   const formattedDate = new Date(rawDate).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -60,8 +47,8 @@ export function renderAside(data) {
   });
   dateElement.textContent = formattedDate;
 
-  description.textContent = data.description;
-  feelsLike.textContent = `${data.days[0].feelslike} °C`;
+  description.textContent = data.days[0].description;
+  feelsLike.textContent = `${data.currentConditions.feelslike} °C`;
 
   console.log("Applied Classes:", newClasses);
 }

@@ -328,6 +328,7 @@ body {
   gap: 20px;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  margin: 0px 2em;
   padding: 10px;
 }
 
@@ -341,14 +342,18 @@ body {
   padding: 10px;
 }
 
+.current-forecast-card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(19, 78, 195, 0.39);
   color: white;
   border: none;
-  border-radius: 50%;
+  font-weight: bold;
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
@@ -364,7 +369,7 @@ body {
 }
 
 .slider-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(19, 78, 195, 0.6);
 }
 
 .forecast-list::-webkit-scrollbar {
