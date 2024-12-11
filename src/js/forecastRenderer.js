@@ -30,6 +30,9 @@ export function renderTodayForecast(data) {
     const forecastTemp = document.createElement("div");
     forecastCard.classList.add("forecast-temp");
 
+    const condition = document.createElement("div");
+    condition.textContent = hour.conditions;
+
     if (index == 0) {
       forecastCard.classList.add("current-forecast-card");
     }
@@ -40,6 +43,7 @@ export function renderTodayForecast(data) {
     forecastCard.appendChild(forecastHour);
     forecastCard.appendChild(smallForecastIcon);
     forecastCard.appendChild(forecastTemp);
+    forecastCard.appendChild(condition);
     forecastList.appendChild(forecastCard);
   });
 }
@@ -65,7 +69,12 @@ export function renderWeekForecast(data) {
 
     const forecastTemp = document.createElement("div");
     forecastTemp.classList.add("forecast-temp");
-    forecastTemp.textContent = `${day.temp}°C`;
+    const fcTempMax = document.createElement("div");
+    const fcTempMin = document.createElement("div");
+    fcTempMax.textContent = `${day.tempmax}°C`;
+    fcTempMin.textContent = `${day.tempmin}°C`;
+    forecastTemp.appendChild(fcTempMax);
+    forecastTemp.appendChild(fcTempMin);
 
     forecastCard.appendChild(dayName);
     forecastCard.appendChild(smallForecastIcon);
