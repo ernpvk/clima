@@ -1,5 +1,5 @@
 import { getSmallIcon } from "./iconUtils";
-import { getCurrentTime } from "./utils";
+import { getCurrentTime, getDayName } from "./utils";
 
 export function renderTodayForecast(data) {
   const forecastList = document.getElementById("forecast-list");
@@ -44,7 +44,37 @@ export function renderTodayForecast(data) {
   });
 }
 
-// Slider
+export function renderWeekForecast(data) {
+  const forecastList = document.getElementById("forecast-list");
+  forecastList.innerHTML = "";
+
+  data.days.slice(0, 7).forEach((day, index) => {
+    const forecastCard = document.createElement("div");
+    forecastCard.classList.add("forecast-card");
+    if (index == 0) {
+      forecastCard.classList.add("current-forecast-card");
+    }
+
+    const dayName = document.createElement("div");
+    dayName.classList.add("forecast-day");
+    dayName.textContent = getDayName(day.datetime);
+
+    const smallForecastIcon = document.createElement("img");
+    smallForecastIcon.classList.add("small-forecast-icon");
+    smallForecastIcon.src = getSmallIcon(day.icon);
+
+    const forecastTemp = document.createElement("div");
+    forecastTemp.classList.add("forecast-temp");
+    forecastTemp.textContent = `${day.temp}°C`;
+
+    forecastCard.appendChild(dayName);
+    forecastCard.appendChild(smallForecastIcon);
+    forecastCard.appendChild(forecastTemp);
+
+    forecastList.appendChild(forecastCard);
+  });
+}
+
 const forecastList = document.getElementById("forecast-list");
 const leftButton = document.querySelector(".left-btn");
 const rightButton = document.querySelector(".right-btn");

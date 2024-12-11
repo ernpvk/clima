@@ -385,6 +385,14 @@ body {
   font-size: 1.5rem;
 }
 
+.forecast-active {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: #ddd;
+  color: #333;
+}
+
 .highlight-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
