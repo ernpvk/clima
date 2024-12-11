@@ -1,13 +1,15 @@
 import { setupSearch } from "./js/setupSearch";
-import { renderAside } from "./js/asideRenderer";
-import { renderTodayForecast, renderWeekForecast } from "./js/forecastRenderer";
+import { renderAside } from "./js/asideData";
 import { highlightActiveButton } from "./js/utils";
 import "./style.css";
+import { renderTodayForecast, renderWeekForecast } from "./js/foreCastData";
+import { renderHighlight } from "./js/highlightData";
 
 setupSearch((data, error) => {
   if (data) {
     renderAside(data);
     renderTodayForecast(data);
+    renderHighlight(data);
 
     const todayButton = document.querySelector(".today-btn");
     const weekButton = document.querySelector(".week-btn");
