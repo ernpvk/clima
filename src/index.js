@@ -1,26 +1,26 @@
 import { setupSearch } from "./js/setupSearch";
-import { renderAside } from "./js/asideData";
+import { getAside } from "./js/asideData";
 import { highlightActiveButton } from "./js/utils";
 import "./style.css";
-import { renderTodayForecast, renderWeekForecast } from "./js/foreCastData";
-import { renderHighlight } from "./js/highlightData";
+import { getTodayForecast, getWeekForecast } from "./js/foreCastData";
+import { getHighlight } from "./js/highlightData";
 
 setupSearch((data, error) => {
   if (data) {
-    renderAside(data);
-    renderTodayForecast(data);
-    renderHighlight(data);
+    getAside(data);
+    getTodayForecast(data);
+    getHighlight(data);
 
     const todayButton = document.querySelector(".today-btn");
     const weekButton = document.querySelector(".week-btn");
 
     todayButton.addEventListener("click", () => {
-      renderTodayForecast(data);
+      getTodayForecast(data);
       highlightActiveButton(todayButton, weekButton);
     });
 
     weekButton.addEventListener("click", () => {
-      renderWeekForecast(data);
+      getWeekForecast(data);
       highlightActiveButton(weekButton, todayButton);
     });
   } else if (error) {

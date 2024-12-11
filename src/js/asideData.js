@@ -1,7 +1,7 @@
 import { getWeatherIcon } from "./iconUtils";
 import { getCurrentTime } from "./utils";
 
-export function renderAside(data) {
+export function getAside(data) {
   const cityName = document.querySelector(".city-name");
   const description = document.querySelector("#description");
   const mainTemp = document.querySelector(".main-temp");
@@ -48,7 +48,6 @@ export function renderAside(data) {
   dateElement.textContent = formattedDate;
 
   description.textContent = data.days[0].description;
-  feelsLike.textContent = `${data.currentConditions.feelslike} °C`;
 
   console.log("Applied Classes:", newClasses);
 }

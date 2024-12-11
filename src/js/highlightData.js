@@ -1,4 +1,4 @@
-export function renderHighlight(data) {
+export function getHighlight(data) {
   const highlightList = document.querySelector(".highlight-list");
   const feeltemp = document.getElementById("feel-temp");
   const tempMax = document.getElementById("temp-max");

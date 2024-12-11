@@ -1,7 +1,7 @@
 import { getSmallIcon } from "./iconUtils";
 import { getCurrentTime, getDayName } from "./utils";
 
-export function renderTodayForecast(data) {
+export function getTodayForecast(data) {
   const forecastList = document.getElementById("forecast-list");
 
   const timezone = data.timezone;
@@ -48,7 +48,7 @@ export function renderTodayForecast(data) {
   });
 }
 
-export function renderWeekForecast(data) {
+export function getWeekForecast(data) {
   const forecastList = document.getElementById("forecast-list");
   forecastList.innerHTML = "";
 
