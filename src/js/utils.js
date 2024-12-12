@@ -7,8 +7,8 @@ export function getCurrentTime(zone) {
 }
 
 export function highlightActiveButton(activeBtn, inactiveBtn) {
-  activeBtn.classList.add("forecast-active");
-  inactiveBtn.classList.remove("forecast-active");
+  activeBtn.classList.add("nav-active");
+  inactiveBtn.classList.remove("nav-active");
 }
 
 export function getDayName(dateString) {
@@ -18,24 +18,19 @@ export function getDayName(dateString) {
 
 export function getUVInterpretation(index) {
   if (index >= 0 && index < 3) {
-    uv.style.backgroundColor = "green";
-    uv.style.color = "white";
-    return "Low (Minimal protection needed)";
+    uvInterpret.style.backgroundColor = "#65ae39";
+    return "Low";
   } else if (index >= 3 && index < 6) {
-    uv.style.backgroundColor = "yellow";
-    uv.style.color = "black";
-    return "Moderate (Some protection recommended)";
+    uvInterpret.style.backgroundColor = "#ffec00";
+    return "Moderate";
   } else if (index >= 6 && index < 8) {
-    uv.style.backgroundColor = "orange";
-    uv.style.color = "white";
-    return "High (Protection essential)";
+    uvInterpret.style.backgroundColor = "#ffa139";
+    return "High";
   } else if (index >= 8 && index < 11) {
-    uv.style.backgroundColor = "red";
-    uv.style.color = "white";
-    return "Very High (Extra protection needed)";
+    uvInterpret.style.backgroundColor = "#f25930";
+    return "Very High";
   } else if (index >= 11) {
-    uv.style.backgroundColor = "violet";
-    uv.style.color = "white";
-    return "Extreme (Avoid being outside)";
+    uvInterpret.style.backgroundColor = "violet";
+    return "Extreme";
   }
 }

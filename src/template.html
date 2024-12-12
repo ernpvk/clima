@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <title>Clima</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="dark">
+    <!-- Aside -->
     <aside class="aside-display">
       <div class="aside-header">
         <input
@@ -17,12 +18,10 @@
         />
         <button>search</button>
       </div>
-
       <div class="aside-main">
         <div class="city-icon">
           <img class="animated-cloud" />
         </div>
-
         <div class="aside-main-description">
           <div class="main-temp"></div>
           <p class="city-name"></p>
@@ -32,11 +31,13 @@
       </div>
     </aside>
 
+    <!-- Main content -->
     <main class="main-content">
+      <!-- Forecast -->
       <section class="forecast-section">
         <div class="forecast-header">
           <div class="nav">
-            <button class="nav-item today-btn forecast-active">Today</button>
+            <button class="nav-item today-btn nav-active">Today</button>
             <button class="nav-item week-btn">Week</button>
           </div>
           <div class="unit-buttons">
@@ -50,51 +51,68 @@
           <button class="slider-btn right-btn">&gt;</button>
         </div>
       </section>
+
+      <!-- Highlight -->
       <section class="today-hightlight">
         <h3>Today's Highlights</h3>
         <div class="highlight-list">
-          <div class="highlight-card" id="highlight-temp">
+          <!-- Temp -->
+          <div class="highlight-card temperature">
             <h4>Temperature</h4>
-            <p id="temp-max"></p>
-            <p id="temp-min"></p>
-            <p id="feel-temp"></p>
+            <div class="temp-list">
+              <p id="temp-max"></p>
+              <p id="temp-min"></p>
+              <p id="feel-temp"></p>
+            </div>
           </div>
-          <div class="highlight-card">
+          <!-- Rain -->
+          <div class="highlight-card rain-card">
             <h4>Rain</h4>
-            <div class="content-container">
+            <div class="content-container rain">
               <p id="rain-percentage"></p>
               <img src="./assets/icons/highlight/rain.png" alt="rain" />
             </div>
           </div>
-          <div class="highlight-card">
+          <!-- Weather Conditions -->
+          <div class="highlight-card condition-card">
             <h4>Weather Conditions</h4>
             <p id="conditions"></p>
-            <div class="content-container">
+            <div class="condition">
               <p id="cover"></p>
               <p>cloudy</p>
             </div>
           </div>
-          <div class="highlight-card">
-            <h4>Wind</h4>
-            <div class="content-container">
-              <img src="./assets/icons/highlight/wind.png" alt="wind" />
-              <p id="wind-speed"></p>
-            </div>
-          </div>
-          <div class="highlight-card">
+          <!-- UV index -->
+          <div class="highlight-card uv-card">
             <h4>UV Index</h4>
-            <div class="content-container">
+            <div class="content-container uv-content">
               <img src="./assets/icons/highlight/uv.png" alt="uv" />
-              <div class="uv-content">
+              <div class="uv-info">
                 <p id="uv"></p>
                 <div id="uvInterpret"></div>
               </div>
+              <p id="recommend"></p>
             </div>
           </div>
-          <div class="highlight-card">
+          <!-- Sunset&Rise -->
+          <div class="highlight-card sun-card">
             <h4>Sunrise & Sunset</h4>
-            <div id="sunrise"><img src="./assets/icons/highlight/sunrise.png" alt="sunrise" /></div>
-            <div id="sunset"><img src="./assets/icons/highlight/sunset.png" alt="sunset" /></div>
+            <div class="content-container sun-content">
+              <img src="./assets/icons/highlight/sunrise.png" alt="sunrise" />
+              <p id="sunrise-time"></p>
+            </div>
+            <div class="content-container">
+              <img src="./assets/icons/highlight/sunset.png" alt="sunset" />
+              <p id="sunset-time"></p>
+            </div>
+          </div>
+          <!-- Wind -->
+          <div class="highlight-card wind-card">
+            <h4>Wind</h4>
+            <div class="content-container wind">
+              <img src="./assets/icons/highlight/wind.png" alt="wind" />
+              <p id="wind-speed"></p>
+            </div>
           </div>
         </div>
       </section>

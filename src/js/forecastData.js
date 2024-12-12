@@ -24,11 +24,11 @@ export function getTodayForecast(data) {
     const forecastCard = document.createElement("div");
     forecastCard.classList.add("forecast-card");
     const forecastHour = document.createElement("div");
-    forecastCard.classList.add("forecast-hour");
+    forecastHour.classList.add("forecast-hour");
     const smallForecastIcon = document.createElement("img");
     smallForecastIcon.classList.add("small-forecast-icon");
     const forecastTemp = document.createElement("div");
-    forecastCard.classList.add("td-forecast-temp");
+    forecastTemp.classList.add("td-forecast-temp");
 
     if (index == 0) {
       forecastCard.classList.add("current-forecast-card");

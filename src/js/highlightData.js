@@ -5,14 +5,24 @@ export function getHighlight(data) {
   const tempMax = document.getElementById("temp-max");
   const tempMin = document.getElementById("temp-min");
 
-  tempMax.textContent = `High ${data.days[0].tempmax}`;
-  tempMin.textContent = `Low ${data.days[0].tempmin}`;
-  feeltemp.textContent = `Feels like 
+  tempMax.textContent = `High ${data.days[0].tempmax}°C`;
+  tempMin.textContent = `Low ${data.days[0].tempmin}°C`;
+  feeltemp.textContent = `Real Feel 
    ${data.days[0].feelslike}`;
 
-  if (data.days[0].preciptype == "rain") {
-    const rainPercentage = document.getElementById("rain-percentage");
+  const rainCard = document.querySelector(".rain-card");
+  const rainPercentage = document.getElementById("rain-percentage");
+  console.log(data.days[0].preciptype);
+  if (
+    data.days &&
+    data.days[0] &&
+    Array.isArray(data.days[0].preciptype) &&
+    data.days[0].preciptype.includes("rain")
+  ) {
     rainPercentage.textContent = `${data.days[0].precipprob}`;
+    rainCard.style.display = "flex";
+  } else {
+    rainCard.style.display = "none";
   }
 
   const conditions = document.getElementById("conditions");
@@ -29,4 +39,9 @@ export function getHighlight(data) {
 
   const uvInterpret = document.getElementById("uvInterpret");
   uvInterpret.textContent = getUVInterpretation(uvIndex);
+
+  const sunriseTime = document.getElementById("sunrise-time");
+  const sunsetTime = document.getElementById("sunset-time");
+  sunriseTime.textContent = data.days[0].sunrise.slice(0, -3);
+  sunsetTime.textContent = data.days[0].sunset.slice(0, -3);
 }
