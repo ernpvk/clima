@@ -59,14 +59,43 @@
             <p id="temp-min"></p>
             <p id="feel-temp"></p>
           </div>
-          <div class="highlight-card"><h4>Rain</h4></div>
-          <div class="highlight-card" id="humidity"><h4>Weather Conditions</h4></div>
-          <div class="highlight-card"><h4>Wind</h4></div>
-          <div class="highlight-card"><h4>UV Index</h4></div>
-          <div class="highlight-card"><h4>Sunrise & Sunset</h4>
-          <div id="sunrise"><img src="./assets/icons/highlight/sunrise.png" alt="sunrise"></div>
-          <div id="sunset"><img src="./assets/icons/highlight/sunset.png" alt="sunset"></div>
-        </div>
+          <div class="highlight-card">
+            <h4>Rain</h4>
+            <div class="content-container">
+              <p id="rain-percentage"></p>
+              <img src="./assets/icons/highlight/rain.png" alt="rain" />
+            </div>
+          </div>
+          <div class="highlight-card">
+            <h4>Weather Conditions</h4>
+            <p id="conditions"></p>
+            <div class="content-container">
+              <p id="cover"></p>
+              <p>cloudy</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <h4>Wind</h4>
+            <div class="content-container">
+              <img src="./assets/icons/highlight/wind.png" alt="wind" />
+              <p id="wind-speed"></p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <h4>UV Index</h4>
+            <div class="content-container">
+              <img src="./assets/icons/highlight/uv.png" alt="uv" />
+              <div class="uv-content">
+                <p id="uv"></p>
+                <div id="uvInterpret"></div>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <h4>Sunrise & Sunset</h4>
+            <div id="sunrise"><img src="./assets/icons/highlight/sunrise.png" alt="sunrise" /></div>
+            <div id="sunset"><img src="./assets/icons/highlight/sunset.png" alt="sunset" /></div>
+          </div>
         </div>
       </section>
     </main>
