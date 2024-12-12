@@ -28,22 +28,18 @@ export function getTodayForecast(data) {
     const smallForecastIcon = document.createElement("img");
     smallForecastIcon.classList.add("small-forecast-icon");
     const forecastTemp = document.createElement("div");
-    forecastCard.classList.add("forecast-temp");
-
-    const condition = document.createElement("div");
-    condition.textContent = hour.conditions;
+    forecastCard.classList.add("td-forecast-temp");
 
     if (index == 0) {
       forecastCard.classList.add("current-forecast-card");
     }
     forecastHour.textContent = formattedTime;
     smallForecastIcon.src = getSmallIcon(hour.icon);
-    forecastTemp.textContent = hour.temp;
+    forecastTemp.textContent = `${hour.temp}°C`;
 
     forecastCard.appendChild(forecastHour);
     forecastCard.appendChild(smallForecastIcon);
     forecastCard.appendChild(forecastTemp);
-    forecastCard.appendChild(condition);
     forecastList.appendChild(forecastCard);
   });
 }
@@ -55,6 +51,7 @@ export function getWeekForecast(data) {
   data.days.slice(0, 7).forEach((day, index) => {
     const forecastCard = document.createElement("div");
     forecastCard.classList.add("forecast-card");
+    forecastCard.classList.add("wk-forecast-card");
     if (index == 0) {
       forecastCard.classList.add("current-forecast-card");
     }
@@ -68,13 +65,14 @@ export function getWeekForecast(data) {
     smallForecastIcon.src = getSmallIcon(day.icon);
 
     const forecastTemp = document.createElement("div");
-    forecastTemp.classList.add("forecast-temp");
+    forecastTemp.classList.add("wk-forecast-temp");
     const fcTempMax = document.createElement("div");
     const fcTempMin = document.createElement("div");
-    fcTempMax.textContent = `${day.tempmax}°C`;
-    fcTempMin.textContent = `${day.tempmin}°C`;
-    forecastTemp.appendChild(fcTempMax);
+    fcTempMax.textContent = `${day.tempmax}`;
+    fcTempMin.textContent = `${day.tempmin}`;
+
     forecastTemp.appendChild(fcTempMin);
+    forecastTemp.appendChild(fcTempMax);
 
     forecastCard.appendChild(dayName);
     forecastCard.appendChild(smallForecastIcon);

@@ -13,7 +13,7 @@ export async function setupSearch(callback) {
         callback(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        callback(null, "⚠️ City not found");
+        alert("City not found!");
       }
     } else {
       alert("Please enter a city name.");

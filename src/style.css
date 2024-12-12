@@ -227,6 +227,7 @@ body {
 }
 
 .nav-item {
+  color: #8e8e8e;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -264,6 +265,10 @@ body {
 }
 
 .forecast-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
   flex: 0 0 auto;
   width: 100px;
   background-color: white;
@@ -271,6 +276,9 @@ body {
   border-radius: 15px;
   text-align: center;
   padding: 10px;
+}
+.forecast-card img {
+  width: 55%;
 }
 
 .current-forecast-card {
@@ -281,14 +289,16 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(19, 78, 195, 0.39);
+  background-color: rgba(106, 114, 130, 0.39);
   color: white;
   border: none;
   font-weight: bold;
   padding: 10px;
   cursor: pointer;
+  border-radius: 6px;
   font-size: 18px;
   z-index: 10;
+  transition: background-color 0.2s;
 }
 
 .slider-btn.left-btn {
@@ -300,12 +310,36 @@ body {
 }
 
 .slider-btn:hover {
-  background-color: rgba(19, 78, 195, 0.6);
+  background-color: rgba(106, 114, 130, 0.6);
 }
 
 .forecast-list::-webkit-scrollbar {
   display: none;
 }
+
+.forecast-active {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  .slider-container {
+    display: none;
+  }
+}
+
+.forecast-active:hover {
+  color: #555;
+}
+
+.wk-forecast-temp {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* highlight */
 
 .today-hightlight {
   margin-top: 20px;
@@ -314,14 +348,6 @@ body {
 .today-hightlight h3 {
   margin-bottom: 10px;
   font-size: 1.5rem;
-}
-
-.forecast-active {
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  background-color: #ddd;
-  color: #333;
 }
 
 .highlight-list {
