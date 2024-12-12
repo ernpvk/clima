@@ -4,7 +4,7 @@ export function getHighlight(data) {
   const tempMax = document.getElementById("temp-max");
   const tempMin = document.getElementById("temp-min");
 
-  tempMax.textContent = data.days[0].tempmax;
+  tempMax.textContent = `Max Temp${data.days[0].tempmax}`;
   tempMin.textContent = data.days[0].tempmin;
   feeltemp.textContent = data.days[0].feelslike;
 }

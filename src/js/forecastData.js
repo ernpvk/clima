@@ -71,8 +71,8 @@ export function getWeekForecast(data) {
     fcTempMax.textContent = `${day.tempmax}`;
     fcTempMin.textContent = `${day.tempmin}`;
 
-    forecastTemp.appendChild(fcTempMin);
     forecastTemp.appendChild(fcTempMax);
+    forecastTemp.appendChild(fcTempMin);
 
     forecastCard.appendChild(dayName);
     forecastCard.appendChild(smallForecastIcon);
