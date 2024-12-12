@@ -6,7 +6,14 @@ export async function fetchWeatherData(location, unit = "uk") {
 
   try {
     const response = await fetch(requestUrl, { mode: "cors" });
-    if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+
+    if (!response.ok) {
+      if (response.status === 429) {
+        throw new Error("You have exceeded the API request limit. Please try again later.");
+      }
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
     return await response.json();
   } catch (error) {
     console.error("Failed to fetch weather data:", error.message);
