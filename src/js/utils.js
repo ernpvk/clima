@@ -17,20 +17,21 @@ export function getDayName(dateString) {
 }
 
 export function getUVInterpretation(index) {
+  const uvInterpret = document.getElementById("uvInterpret");
   if (index >= 0 && index < 3) {
-    uvInterpret.style.backgroundColor = "#65ae39";
+    uvInterpret.style.background = "linear-gradient(190deg, #B0F2B6 0%, #90EE90 100%)";
     return "Low";
   } else if (index >= 3 && index < 6) {
-    uvInterpret.style.backgroundColor = "#ffec00";
+    uvInterpret.style.background = "linear-gradient(135deg, #FFF5B1 0%, #FFFACD 100%)";
     return "Moderate";
   } else if (index >= 6 && index < 8) {
-    uvInterpret.style.backgroundColor = "#ffa139";
+    uvInterpret.style.background = "linear-gradient(135deg, #FFD1A0 0%, #FFDAB9 100%)";
     return "High";
   } else if (index >= 8 && index < 11) {
-    uvInterpret.style.backgroundColor = "#f25930";
+    uvInterpret.style.background = "linear-gradient(135deg, #FFB3BA 0%, #FFCCCB 100%)";
     return "Very High";
   } else if (index >= 11) {
-    uvInterpret.style.backgroundColor = "violet";
+    uvInterpret.style.background = "linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%)";
     return "Extreme";
   }
 }
