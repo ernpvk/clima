@@ -5,6 +5,7 @@ import "./style.css";
 import { getTodayForecast, getWeekForecast } from "./js/foreCastData";
 import { getHighlight } from "./js/highlightData";
 
+
 setupSearch((data, error) => {
   if (data) {
     getAside(data);

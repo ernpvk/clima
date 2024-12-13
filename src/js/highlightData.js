@@ -1,4 +1,5 @@
 import { getUVInterpretation } from "./utils";
+import rain from "../assets/icons/highlight/rain.png";
 export function getHighlight(data) {
   const highlightList = document.querySelector(".highlight-list");
   const feeltemp = document.getElementById("feel-temp");
