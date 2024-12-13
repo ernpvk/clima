@@ -512,7 +512,7 @@ body {
   }
 
   .aside-display {
-    height: auto;
+    height: 100vh;
   }
 
   .main-temp,
