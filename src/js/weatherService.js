@@ -1,5 +1,5 @@
 export async function fetchWeatherData(location, unit = "uk") {
-  const API_KEY = RZKC2X6NY5CHKW9CWT5SJH562;
+  const API_KEY = "RZKC2X6NY5CHKW9CWT5SJH562";
   const BASE_URL =
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline";
   const requestUrl = `${BASE_URL}/${location}?unitGroup=${unit}&lang=en&key=${API_KEY}&contentType=json`;
